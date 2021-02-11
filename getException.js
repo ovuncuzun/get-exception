@@ -17,15 +17,15 @@ let status2 = {
 
 
 function getException(status, type) {
-    let errorData = "";
+    let exceptionData = "";
     if (status[type] && status[type].length > 0) {
-        errorData = _.reduce(status[type], (result, value, key) => {
+        exceptionData = _.reduce(status[type], (result, value, key) => {
             let valueText = result + value.text;
             return parseInt(key) != status[type].length - 1 ?
                 valueText + ", " : valueText;
         }, type + " id: ")
     }
-    return errorData;
+    return exceptionData;
 }
 
 console.log(getException(status, "invalid")); // invalid id: 123, 456, 789
